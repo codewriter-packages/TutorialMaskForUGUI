@@ -1,0 +1,18 @@
+{
+  "name": "com.codewriter.tutorial-mask",
+  "displayName": "UI Tutorial Mask",
+  "description": "UI Tutorial Mask is a component for highlighting specific objects over darkened background for Unity UI (uGUI)",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "license": "MIT",
+  "keywords": [
+    "unity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codewriter-packages/TutorialMaskForUGUI.git"
+  },
+  "author": "CodeWriter (https://github.com/orgs/codewriter-packages)",
+  "homepage": "https://github.com/codewriter-packages/TutorialMaskForUGUI#readme",
+  "dependencies": {}
+}
