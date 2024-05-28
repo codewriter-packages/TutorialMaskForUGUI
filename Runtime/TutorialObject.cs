@@ -13,6 +13,9 @@ namespace CodeWriter.UIExtensions
     [AddComponentMenu("CodeWriter/UIExtensions/Tutorial Object")]
     public class TutorialObject : UIBehaviour, IMaterialModifier
     {
+        [SerializeField]
+        private bool showGraphics = true;
+
         [NonSerialized]
         private Graphic _graphic;
 
@@ -44,6 +47,21 @@ namespace CodeWriter.UIExtensions
             _highlightMaterial = null;
         }
 
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+
+            if (!IsActive())
+            {
+                return;
+            }
+
+            if (Graphic != null)
+            {
+                Graphic.SetMaterialDirty();
+            }
+        }
+
         public Material GetModifiedMaterial(Material baseMaterial)
         {
             if (!IsActive())
@@ -64,7 +82,7 @@ namespace CodeWriter.UIExtensions
                         stencilID: tutorialBit | ((1 << stencilValue) - 1),
                         operation: StencilOp.Replace,
                         compareFunction: CompareFunction.Equal,
-                        colorWriteMask: ColorWriteMask.All,
+                        colorWriteMask: showGraphics ? ColorWriteMask.All : 0,
                         readMask: (1 << stencilValue) - 1,
                         writeMask: tutorialBit
                     );
@@ -80,7 +98,7 @@ namespace CodeWriter.UIExtensions
                     stencilID: tutorialBit,
                     operation: StencilOp.Replace,
                     compareFunction: CompareFunction.Always,
-                    colorWriteMask: ColorWriteMask.All,
+                    colorWriteMask: showGraphics ? ColorWriteMask.All : 0,
                     readMask: 0,
                     writeMask: tutorialBit
                 );
