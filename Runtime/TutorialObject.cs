@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace CodeWriter.UIExtensions
 {
+    [ExecuteAlways]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(RectTransform))]
     [RequireComponent(typeof(Graphic))]

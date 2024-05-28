@@ -35,7 +35,7 @@ namespace CodeWriter.UIExtensions
             var stencilDepth = MaskUtilities.GetStencilDepth(transform, rootSortCanvas);
             if (stencilDepth >= 7)
             {
-                Debug.LogWarning("Attempting to use a stencil mask with depth > 8", gameObject);
+                Debug.LogWarning("Attempting to use a stencil mask with depth > 7", gameObject);
                 return baseMaterial;
             }
 
