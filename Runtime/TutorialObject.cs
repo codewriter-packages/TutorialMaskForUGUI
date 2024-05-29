@@ -47,6 +47,7 @@ namespace CodeWriter.UIExtensions
             _highlightMaterial = null;
         }
 
+#if UNITY_EDITOR
         protected override void OnValidate()
         {
             base.OnValidate();
@@ -61,6 +62,7 @@ namespace CodeWriter.UIExtensions
                 Graphic.SetMaterialDirty();
             }
         }
+#endif
 
         public Material GetModifiedMaterial(Material baseMaterial)
         {
